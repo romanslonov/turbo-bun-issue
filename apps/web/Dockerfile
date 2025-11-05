@@ -3,18 +3,17 @@ WORKDIR /app
 
 # ===============================================
 
-# FROM base AS builder
+FROM base AS builder
 
-# COPY . .
+COPY . .
 
-# RUN bunx --bun turbo prune web --docker
+RUN bunx --bun turbo prune web --docker
 
 # ===============================================
 
 FROM base AS installer
 
-# COPY --from=builder /app/out/json/ .
-COPY . .
+COPY --from=builder /app/out/json/ .
 
 ARG API_URL
 ENV VITE_API_URL=$API_URL
@@ -22,7 +21,7 @@ ENV NODE_ENV=production
 
 RUN bun install --frozen-lockfile
 
-# COPY --from=builder /app/out/full/ .
+COPY --from=builder /app/out/full/ .
 RUN bun --filter "web" build
 
 # ===============================================
