@@ -1,0 +1,10 @@
+node_modules
+dist
+out
+.env
+.git
+.gitignore
+.turbo
+.tanstack
+.vscode
+.cursor

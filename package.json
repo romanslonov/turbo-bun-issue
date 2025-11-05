@@ -1,0 +1,11 @@
+{
+  "name": "turbo-bun-issue",
+  "devDependencies": {
+    "turbo": "^2.6.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "bun@1.3.1",
+  "workspaces": [
+    "apps/*"
+  ]
+}
